@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffee-with-Cinema | AI Screenwriting</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="sidebar.css">
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h1 class="cinema-title">COFFEE-CINEMA</h1>
+      <p class="subtitle">Pre-Production Suite</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <button class="nav-item active"><span class="nav-number">1</span>Story Line</button>
+      <button class="nav-item disabled"><span class="nav-number">2</span>Screenplay</button>
+      <button class="nav-item disabled"><span class="nav-number">3</span>Characters</button>
+      <button class="nav-item disabled"><span class="nav-number">4</span>Sound Design</button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button onclick="location.reload()">← Back to Landing</button>
+    </div>
+  </aside>
+
+  <!-- Main content -->
+  <main class="container-center">
+    <h1 class="landing-title cinema-title">Coffee-with-Cinema</h1>
+    <p class="landing-subtitle">The Future of AI-Driven Screenwriting</p>
+
+    <form id="landingForm">
+  <input 
+    type="text" 
+    id="usernameInput"
+    placeholder="Enter your name…" 
+    required
+    style="padding: 12px 16px; width: 240px; border-radius: 8px; border: 1px solid #444; margin-top: 1.5rem; background:#111; color:white;"
+  >
+  <br>
+  <button type="submit" class="start-button">Start Creating</button>
+</form>
+
+<script>
+  // Grab the form element
+  const form = document.getElementById('landingForm');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault(); // stop default submit
+    const username = document.getElementById('usernameInput').value.trim();
+    if (username) {
+      // Redirect to dashboard.html and pass username in query string
+      window.location.href = `dashboard.html?username=${encodeURIComponent(username)}`;
+    } else {
+      alert("Please enter your name before continuing.");
+    }
+  });
+</script>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <h2 class="cinema-title">COFFEE-CINEMA</h2>
+        <p>Empowering screenwriters and directors with AI-driven pre-production tools.</p>
+        <div class="footer-socials">
+          <div class="social">TW</div>
+          <div class="social">IG</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li>Storyboarder</li>
+          <li>Script GPT-4</li>
+          <li>Sound Forge</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li>Privacy Policy</li>
+          <li>Terms of Service</li>
+          <li>API Usage</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2024 Coffee-with-Cinema AI. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('startForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('username').value.trim();
+      if(name) alert(`Welcome, ${name}! Ready to start.`);
+      else alert('Please enter your name.');
+    });
+  </script>
+
+</body>
+</html>

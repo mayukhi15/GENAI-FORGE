@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | Coffee-with-Cinema</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    #generator-box {
+      transition: opacity 0.6s ease;
+    }
+    .loading-ring {
+      position: relative; 
+      width: 90px; 
+      height: 90px;
+    }
+    .loading-ring .ring-base {
+      position: absolute; 
+      inset: 0;
+      border: 4px solid rgba(255, 80, 80, 0.25);
+      border-radius: 50%;
+    }
+    .loading-ring .ring-spin {
+      position: absolute;
+      inset: 0;
+      border: 4px solid #ff4444;
+      border-radius: 50%;
+      border-top-color: transparent;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .button-main {
+      position: relative;
+      overflow: hidden;
+    }
+    .button-main:hover .button-glow {
+      transform: translateY(0);
+    }
+    .button-glow {
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.15);
+      transform: translateY(100%);
+      transition: 0.3s ease;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div style="display:flex; height:100vh;">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <h2 style="color:white; margin-bottom:24px;">Menu</h2>
+
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="screenplay.html">Screenplay</a>
+      <a href="characters.html">Characters</a>
+      <a href="sound.html">Sound Design</a>
+    </div>
+
+    <!-- MAIN -->
+    <div class="main">
+
+      <div style="padding:48px; max-width:900px; margin:auto;">
+
+        <!-- WELCOME -->
+        <header style="margin-bottom:48px;">
+          <div class="glass-panel" style="padding:32px; border-radius:24px;">
+            <h2 style="font-size:2rem; font-weight:700; margin-bottom:8px;">Welcome, Filmmaker!</h2>
+            <p style="opacity:0.6;">Every masterpiece starts with a single coffee and a vision.</p>
+          </div>
+        </header>
+
+        <!-- GENERATOR -->
+        <div id="generator-box">
+          <h3 style="font-size:1.8rem; margin-bottom:24px;">Enter Your Concept</h3>
+
+          <textarea id="story-input"
+            placeholder="Describe your cinematic vision... e.g., A sci-fi thriller set on a silent moon base where the shadows start moving independently."
+            style="
+              width:100%; 
+              height:280px; 
+              background:#111; 
+              border:1px solid rgba(255,255,255,0.1); 
+              padding:24px; 
+              border-radius:24px; 
+              color:white; 
+              font-size:1.1rem;
+              resize:none;
+            "
+          ></textarea>
+
+          <!-- ERROR DISPLAY -->
+          <p id="error-message" style="color:#ff4444; margin-top:10px; display:none;">
+            Cinematic failure! The projectionist is asleep. (Error)
+          </p>
+
+          <!-- BUTTON -->
+          <div style="margin-top:32px; text-align:center;">
+            <button id="generate-btn"
+              class="button-main"
+              style="
+                padding:14px 48px;
+                border-radius:32px;
+                background:#cc1111;
+                color:white;
+                font-size:1.2rem;
+                border:none;
+                cursor:pointer;
+                font-weight:700;
+              "
+            >
+              <div class="button-glow"></div>
+              DEVELOP SCRIPT
+            </button>
+          </div>
+        </div>
+
+        <!-- LOADING STATE -->
+        <div id="loading-box" style="display:none; text-align:center; padding:60px 0;">
+          <div class="loading-ring" style="margin:auto; margin-bottom:24px;">
+            <div class="ring-base"></div>
+            <div class="ring-spin"></div>
+          </div>
+          <p id="loading-text" style="font-size:1.6rem; opacity:0.8;">Grinding fresh beans...</p>
+        </div>
+
+        <!-- GENERATED RESULT -->
+        <div id="result-box" style="display:none; margin-top:32px;">
+
+          <div class="glass-panel" style="padding:32px; border-radius:24px;">
+            <h3 style="color:#ff4444; text-transform:uppercase; letter-spacing:3px; margin-bottom:16px;">
+              Story Premise
+            </h3>
+
+            <div id="story-content" style="line-height:1.6; opacity:0.9;"></div>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:32px;">
+
+            <div class="glass-panel" style="padding:24px; border-radius:16px; background:rgba(255,50,50,0.05); border-color:rgba(255,80,80,0.2);">
+              <h4 style="color:white; margin-bottom:4px;">Package Ready</h4>
+              <p style="opacity:0.6; font-size:0.9rem;">
+                The screenplay, character profiles, and sound design are generated. Use the sidebar to explore.
+              </p>
+            </div>
+
+            <button id="reset-btn"
+              style="
+                padding:24px;
+                border-radius:16px;
+                background:#111;
+                color:white;
+                border:1px solid rgba(255,255,255,0.1);
+                cursor:pointer;
+                text-align:left;
+              "
+            >
+              <strong style="font-size:1rem;">Start New Story</strong><br>
+              <span style="opacity:0.6; font-size:0.9rem;">Reset the project and brainstorm a different concept.</span>
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="footer">
+        COFFEE-CINEMA PRE-PRODUCTION SUITE • v2.0-STABLE
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const loadingMessages = [
+      "Grinding fresh beans...",
+      "Developing the film...",
+      "Writing the first draft...",
+      "Casting the leads...",
+      "Composing the score...",
+      "Setting the lights...",
+      "Checking the gate..."
+    ];
+
+    let loadingIndex = 0;
+
+    const generatorBox = document.getElementById("generator-box");
+    const loadingBox = document.getElementById("loading-box");
+    const resultBox = document.getElementById("result-box");
+
+    const loadingText = document.getElementById("loading-text");
+    const errorMessage = document.getElementById("error-message");
+
+    const generateBtn = document.getElementById("generate-btn");
+    const resetBtn = document.getElementById("reset-btn");
+
+    generateBtn.onclick = () => {
+      const input = document.getElementById("story-input").value.trim();
+      if (!input) return;
+
+      generatorBox.style.display = "none";
+      loadingBox.style.display = "block";
+
+      const interval = setInterval(() => {
+        loadingIndex = (loadingIndex + 1) % loadingMessages.length;
+        loadingText.textContent = loadingMessages[loadingIndex];
+      }, 3000);
+
+      setTimeout(() => {
+        clearInterval(interval);
+        loadingBox.style.display = "none";
+        resultBox.style.display = "block";
+
+        document.getElementById("story-content").innerHTML =
+          input.replace(/\n/g, "<br><br>");
+
+      }, 5500);
+    };
+
+    resetBtn.onclick = () => {
+      document.getElementById("story-input").value = "";
+      resultBox.style.display = "none";
+      generatorBox.style.display = "block";
+    };
+  </script>
+
+</body>
+</html>

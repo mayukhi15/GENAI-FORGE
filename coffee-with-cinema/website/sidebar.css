@@ -1,0 +1,122 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20rem; /* 320px */
+  height: 100%;
+  background: #111;
+  color: white;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.sidebar-header h1.cinema-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: linear-gradient(45deg, #ec4899, #dc2626);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sidebar-header .subtitle {
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-top: 0.25rem;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background: transparent;
+  color: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-item:hover:not(.disabled) {
+  color: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.05);
+}
+
+.nav-number {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: bold;
+  background: rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
+}
+
+.nav-item.active .nav-number {
+  background: linear-gradient(45deg, #ec4899, #dc2626);
+  color: white;
+  transform: scale(1.1);
+}
+
+.nav-item.active .nav-indicator {
+  position: absolute;
+  right: 0.5rem;
+  width: 0.25rem;
+  height: 1rem;
+  background: #dc2626;
+  border-radius: 999px;
+  box-shadow: 0 0 8px rgba(239,68,68,0.8);
+}
+
+.nav-item.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.sidebar-footer button {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.4);
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: color 0.3s;
+}
+
+.sidebar-footer button:hover {
+  color: white;
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    padding: 1rem;
+    overflow-x: auto;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+}

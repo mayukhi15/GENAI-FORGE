@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Story</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h2>Enter Your Story Concept</h2>
+
+  <textarea id="story" placeholder="Enter your movie idea here..."></textarea>
+
+  <br><br>
+
+  <label style="font-size:20px;">Choose Output Language:</label>
+  <select id="language" style="padding:10px; font-size:18px;">
+      <option value="English">English</option>
+      <option value="Hindi">Hindi</option>
+      <option value="Telugu">Telugu</option>
+      <option value="Tamil">Tamil</option>
+      <option value="Kannada">Kannada</option>
+      <option value="Malayalam">Malayalam</option>
+      <option value="French">French</option>
+      <option value="Spanish">Spanish</option>
+      <option value="German">German</option>
+  </select>
+
+  <br><br>
+
+  <button onclick="generateContent()">Generate Content</button>
+
+  <!-- Gemini Script -->
+  <script src="https://esm.run/@google/generative-ai/dist/browser.bundle.min.js"></script>
+
+  <!-- Your JS -->
+  <script src="app.js"></script>
+
+</body>
+</html>

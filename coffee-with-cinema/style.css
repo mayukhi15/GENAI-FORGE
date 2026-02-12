@@ -1,0 +1,186 @@
+/* ---------------------------------------
+   SUNSET PEACH AESTHETIC THEME + ANIMATIONS
+---------------------------------------- */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+/* SUNSET BACKGROUND */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #ffe1cc, #ffd6e0, #ffd4c0);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 45px 0;
+    overflow-x: hidden;
+    animation: bgMove 8s ease-in-out infinite alternate;
+}
+
+/* Sunlight shimmer animation */
+@keyframes bgMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* FLOATING CLOUD EFFECT */
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.45);
+    filter: blur(20px);
+    border-radius: 50%;
+    animation: cloudFloat 14s infinite ease-in-out alternate;
+}
+
+.cloud:nth-child(1) { width: 250px; height: 120px; top: 8%; left: -10%; animation-duration: 16s; }
+.cloud:nth-child(2) { width: 200px; height: 100px; bottom: 15%; right: -8%; animation-duration: 12s; }
+.cloud:nth-child(3) { width: 180px; height: 90px; top: 55%; left: 30%; animation-duration: 18s; }
+
+@keyframes cloudFloat {
+    0% { transform: translateX(0px); }
+    100% { transform: translateX(50px); }
+}
+
+/* MAIN CONTAINER (Glass Sunset Card) */
+.container {
+    width: 90%;
+    max-width: 850px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(20px);
+    border-radius: 35px;
+    padding: 45px;
+    box-shadow:
+        0 18px 40px rgba(255, 150, 120, 0.25),
+        inset 0 0 25px rgba(255, 255, 255, 0.4);
+    animation: fadeUp 1.2s ease-out;
+    position: relative;
+    z-index: 5;
+}
+
+/* SOFT APPEAR ANIMATION */
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(25px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* HEADINGS */
+h2 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 600;
+    color: #ff7b47;
+    text-shadow: 0 4px 12px rgba(255, 120, 70, 0.2);
+    margin-bottom: 25px;
+}
+
+/* TEXTAREA */
+textarea {
+    width: 100%;
+    height: 240px;
+    padding: 18px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 180, 140, 0.6);
+    background: rgba(255, 245, 240, 0.8);
+    outline: none;
+    transition: 0.3s;
+}
+
+textarea:focus {
+    border-color: #ff9f72;
+    box-shadow: 0 0 14px rgba(255, 150, 110, 0.5);
+}
+
+/* LABEL */
+label {
+    font-size: 19px;
+    font-weight: 500;
+    color: #ff7b47;
+    margin: 25px 0 10px;
+    display: block;
+}
+
+/* DROPDOWN */
+select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 18px;
+    font-size: 18px;
+    border: 2px solid rgba(255, 180, 140, 0.6);
+    background: rgba(255, 240, 225, 0.9);
+    outline: none;
+    transition: 0.3s;
+}
+
+select:hover {
+    border-color: #ff9f72;
+    box-shadow: 0 0 12px rgba(255, 140, 90, 0.4);
+}
+
+/* BUTTON */
+button {
+    margin: 35px auto 0;
+    display: block;
+    padding: 16px 55px;
+    font-size: 20px;
+    border-radius: 32px;
+    background: linear-gradient(135deg, #ffb07a, #ff7a47);
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(255, 120, 70, 0.4);
+    transition: 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 32px rgba(255, 110, 50, 0.45);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+/* Shine Effect */
+button::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 300%;
+    top: -130%;
+    left: -160%;
+    background: rgba(255,255,255,0.45);
+    transform: rotate(25deg);
+    animation: buttonShine 2s infinite;
+}
+
+@keyframes buttonShine {
+    0% { left: -160%; }
+    100% { left: 160%; }
+}
+
+/* OUTPUT BOXES */
+.output-box {
+    background: rgba(255, 240, 225, 0.9);
+    border: 2px solid rgba(255, 180, 140, 0.6);
+    padding: 25px;
+    border-radius: 22px;
+    white-space: pre-wrap;
+    font-size: 17px;
+    line-height: 1.7;
+    box-shadow: inset 0 0 15px rgba(255, 190, 150, 0.3);
+}
+
+/* NEXT BUTTON SPECIAL COLOR */
+.next-btn {
+    background: linear-gradient(135deg, #ff8f47, #ff6d1f);
+    box-shadow: 0 10px 25px rgba(255, 100, 40, 0.45);
+}
+
+.next-btn:hover {
+    background: #ff6621;
+}

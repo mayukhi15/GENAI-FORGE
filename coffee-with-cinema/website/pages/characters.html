@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dramatis Personae | Coffee-with-Cinema</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@400;900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Character Card Styles */
+    .character-card {
+      background: #111;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+    .character-card:hover {
+      border-color: rgba(255, 60, 60, 0.6);
+    }
+    .character-top-bar {
+      height: 4px;
+      background: linear-gradient(to right, #b00000, transparent);
+      opacity: 0.5;
+    }
+    .character-index {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.25);
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .character-card:hover .character-index {
+      color: #ff3333;
+    }
+    .section-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      font-weight: 700;
+      opacity: 0.4;
+      letter-spacing: 3px;
+      margin-bottom: 6px;
+    }
+    .character-arc-title {
+      color: #ff3333;
+      opacity: 1;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div style="display:flex; height:100vh;">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <h2 style="color:white; margin-bottom:24px;">Menu</h2>
+
+      <a href="dashboard.html">Dashboard</a>
+      <a href="screenplay.html">Screenplay</a>
+      <a href="characters.html" class="active">Characters</a>
+      <a href="sound.html">Sound Design</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main">
+      <div class="p-12" style="max-width:1100px; margin:auto;">
+
+        <h1 class="cinema-title" style="font-size:3rem; font-weight:700; margin-bottom:48px;">
+          Dramatis Personae
+        </h1>
+
+        <!-- Character Grid -->
+        <div style="display:grid; grid-template-columns:1fr; gap:32px;" class="md:grid-cols-2">
+
+          <!-- CHARACTER 1 -->
+          <div class="character-card">
+            <div class="character-top-bar"></div>
+            <div style="padding:32px;">
+
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:24px;">
+                <div>
+                  <h3 style="font-size:2rem; font-weight:700; margin-bottom:4px;">Evelyn Harrow</h3>
+                  <p style="color:#ff4444; font-size:12px; text-transform:uppercase; letter-spacing:1px;">Age: 34</p>
+                </div>
+                <div class="character-index">1</div>
+              </div>
+
+              <div style="display:flex; flex-direction:column; gap:24px;">
+
+                <section>
+                  <h4 class="section-title">Description</h4>
+                  <p style="opacity:0.8; line-height:1.6;">
+                    A brilliant but reclusive sound engineer haunted by the death of her sister.
+                  </p>
+                </section>
+
+                <section>
+                  <h4 class="section-title">Motivations</h4>
+                  <p style="opacity:0.8; line-height:1.6;">
+                    Seeks redemption through her work, believing sound captures emotional truth.
+                  </p>
+                </section>
+
+                <div style="border-top:1px solid rgba(255,255,255,0.05); padding-top:24px;">
+                  <h4 class="section-title character-arc-title">Character Arc</h4>
+                  <p style="opacity:0.6; font-style:italic;">
+                    Learns to let go of guilt and reconnect with the world she shut herself away from.
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+          <!-- CHARACTER 2 -->
+          <div class="character-card">
+            <div class="character-top-bar"></div>
+            <div style="padding:32px;">
+
+              <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:24px;">
+                <div>
+                  <h3 style="font-size:2rem; font-weight:700; margin-bottom:4px;">Marcus Vale</h3>
+                  <p style="color:#ff4444; font-size:12px; text-transform:uppercase; letter-spacing:1px;">Age: 41</p>
+                </div>
+                <div class="character-index">2</div>
+              </div>
+
+              <div style="display:flex; flex-direction:column; gap:24px;">
+
+                <section>
+                  <h4 class="section-title">Description</h4>
+                  <p style="opacity:0.8; line-height:1.6;">
+                    A charismatic documentary filmmaker obsessed with uncovering hidden truths.
+                  </p>
+                </section>
+
+                <section>
+                  <h4 class="section-title">Motivations</h4>
+                  <p style="opacity:0.8; line-height:1.6;">
+                    Driven by a need to expose injustice and elevate unheard voices.
+                  </p>
+                </section>
+
+                <div style="border-top:1px solid rgba(255,255,255,0.05); padding-top:24px;">
+                  <h4 class="section-title character-arc-title">Character Arc</h4>
+                  <p style="opacity:0.6; font-style:italic;">
+                    Must confront his own blind spots and learn that not all truths are his to reveal.
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="footer">
+        COFFEE-CINEMA PRE-PRODUCTION SUITE • v2.0-STABLE
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
